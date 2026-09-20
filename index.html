@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0b3142">
+  <meta name="description" content="Jadwal kuliah pribadi dan pengingat tugas.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Kuliah App</title>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">MY ACADEMIC SPACE</div>
+      <h1>Kuliah App</h1>
+    </div>
+    <button id="installBtn" class="ghost hidden">Install</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p id="dateText">—</p>
+        <div id="clock" class="clock">00:00:00</div>
+        <p id="nextClass" class="muted">Memuat jadwal...</p>
+      </div>
+      <div id="countdown" class="countdown">—</div>
+    </section>
+
+    <nav class="tabs" aria-label="Navigasi">
+      <button class="tab active" data-view="schedule">Jadwal</button>
+      <button class="tab" data-view="tasks">Tugas</button>
+      <button class="tab" data-view="groups">Kelompok</button>
+    </nav>
+
+    <section id="scheduleView" class="view">
+      <div class="section-head">
+        <div>
+          <h2>Jadwal Mingguan</h2>
+          <p class="muted">Tambah dan edit jadwal kuliah kamu.</p>
+        </div>
+        <button id="addScheduleBtn" class="primary">+ Jadwal</button>
+      </div>
+      <div id="scheduleList" class="list"></div>
+    </section>
+
+    <section id="tasksView" class="view hidden">
+      <div class="section-head">
+        <div>
+          <h2>Tugas Kuliah</h2>
+          <p class="muted">Pantau deadline individu maupun kelompok.</p>
+        </div>
+        <button id="addTaskBtn" class="primary">+ Tugas</button>
+      </div>
+      <div class="filters">
+        <button class="filter active" data-filter="all">Semua</button>
+        <button class="filter" data-filter="todo">Belum</button>
+        <button class="filter" data-filter="progress">Proses</button>
+        <button class="filter" data-filter="done">Selesai</button>
+      </div>
+      <div id="taskList" class="list"></div>
+    </section>
+
+    <section id="groupsView" class="view hidden">
+      <div class="section-head">
+        <div>
+          <h2>Kelompok</h2>
+          <p class="muted">Simpan anggota dan tugas setiap kelompok.</p>
+        </div>
+        <button id="addGroupBtn" class="primary">+ Kelompok</button>
+      </div>
+      <div id="groupList" class="list"></div>
+    </section>
+  </main>
+
+  <footer>
+    <button id="notifyBtn" class="secondary">🔔 Aktifkan Notifikasi</button>
+    <span id="saveStatus" class="muted">Data tersimpan di perangkat</span>
+  </footer>
+</div>
+
+<div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h2 id="modalTitle">Tambah</h2>
+      <button id="closeModal" class="icon-btn" aria-label="Tutup">×</button>
+    </div>
+    <form id="modalForm"></form>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
